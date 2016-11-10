@@ -10,7 +10,8 @@ var YouTube = {
         $.ajax({
             beforeSend: function(){
                 load.style.display = 'block';
-                load.style.margin = '50%';
+                load.style.marginLeft = '50%';
+                load.style.marginTop = '20%';
             },
 
             url: "https://www.googleapis.com/youtube/v3/videos",
