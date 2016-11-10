@@ -11,12 +11,7 @@ var YouTube = {
             beforeSend: function(){
                 load.style.display = 'block';
                 load.style.margin = '50%';
-                // Handle the beforeSend event
             },
-            /*complete: function(){
-                $("#loader").css("display", "none;");
-                // Handle the complete event
-            },*/
 
             url: "https://www.googleapis.com/youtube/v3/videos",
             data: {
