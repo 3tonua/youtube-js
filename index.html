@@ -14,7 +14,7 @@
 
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#last" aria-controls="last" role="tab" data-toggle="tab">Last</a></li>
+        <li role="presentation" class="active"><a href="#last" aria-controls="last" role="tab" data-toggle="tab">Last videos</a></li>
         <li role="presentation"><a href="#favorites" aria-controls="favorites" role="tab" data-toggle="tab">Favorites</a></li>
     </ul>
 
@@ -28,20 +28,39 @@
 
             </div>
         </div>
-        <div role="tabpanel" class="tab-pane" id="favorites">...</div>
+        <div role="tabpanel" class="tab-pane" id="favorites">
+            <div class="row">
+
+            </div>
     </div>
 
 </div>
 
+<!--модальное окно-->
+<div class="modal fade" tabindex="-1" role="dialog" id="watch-video">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Modal title</h4>
+                <p class="modal-channel"></p>
+                <p class="modal-date"></p>
+                <p class="modal-prosm"></p>
+            </div>
+            <div class="modal-body">
 
+            </div>
 
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="api.js"></script>
     <script src="index.js"></script>
-    <script src="node_modules/moment/src/moment.js"></script>
+    <!--<script src="node_modules/moment/src/moment.js"></script>-->
 
 </body>
 </html>

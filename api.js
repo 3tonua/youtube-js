@@ -1,5 +1,9 @@
 var key = 'AIzaSyD0KxGbBLA3r2EtQD6t0eUYIEztv2zKRHs';
 
+/*var idpr = videos[index];
+var idprosm = idpr.id;*/
+
+
 var load = document.querySelector('#loader');
 
 var YouTube = {
@@ -16,16 +20,32 @@ var YouTube = {
 
             url: "https://www.googleapis.com/youtube/v3/videos",
             data: {
-                part: "snippet",
+                part: "snippet,statistics",
                 key: key,
                 chart: "mostPopular",
                 maxResults: 10
+                // id: idprosm
+
+
             },
             success: function( result ) {
                 dfd.resolve(result);
                 load.style.display = 'none';
             }
         });
+        /*$.ajax({
+            beforeSend: function(){
+            },
+            url: "https://www.googleapis.com/youtube/v3/videos",
+            data: {
+                part: "snippet",
+                id: "idprosm"
+            }
+            },
+            success: function( result ) {
+            dfd.resolve(result);
+        }
+            });*/
         return dfd.promise();
     }
 };
