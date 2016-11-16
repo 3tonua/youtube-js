@@ -10,17 +10,16 @@ var YouTube = {
     getLastVideos: function () {
         var dfd = jQuery.Deferred();
 
-        //
         $.ajax({
-            beforeSend: function(){
+            /*beforeSend: function(){
                 load.style.display = 'block';
                 load.style.marginLeft = '50%';
                 load.style.marginTop = '20%';
-            },
+            },*/
 
             url: "https://www.googleapis.com/youtube/v3/videos",
             data: {
-                part: "snippet,statistics",
+                part: "snippet",
                 key: key,
                 chart: "mostPopular",
                 maxResults: 10
@@ -30,22 +29,26 @@ var YouTube = {
             },
             success: function( result ) {
                 dfd.resolve(result);
-                load.style.display = 'none';
+                // load.style.display = 'none';
             }
         });
-        /*$.ajax({
-            beforeSend: function(){
-            },
+
+        return dfd.promise();
+    },
+
+    getVideoInfo: function (id) {
+        $.ajax({
+
             url: "https://www.googleapis.com/youtube/v3/videos",
             data: {
                 part: "snippet",
-                id: "idprosm"
-            }
+                id: id
+
+
             },
             success: function( result ) {
-            dfd.resolve(result);
-        }
-            });*/
-        return dfd.promise();
+                dfd.resolve(result);
+            }
+        });
     }
 };
