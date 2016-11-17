@@ -1,4 +1,6 @@
 
+
+
 describe('YouTube', function () {
     describe('API', function () {
 
@@ -17,36 +19,35 @@ describe('YouTube', function () {
                 }
             })
         });
-        /*it('ID присутствует', function (done) {
-            $.when(YouTube.getVideoInfo()).then(function (result) {
-                if (result.id != null){
+        it('ID присутствует', function (done) {
+            $.when(YouTube.getLastVideos()).then(function (result) {
+
+                for (var i = 0; i < 10; i++) {
+                    if (result.items[i].id.length == 0){
+                        var ok = false;
+                    }
+                }
+                if (ok == true) {
+                alert("123");
+                } else {
                     done();
                 }
             })
-        })*/
+        });
+
+
+        /*it('ID присутствует', function (done) {
+            $.when(YouTube.getLastVideos()).then(function (result) {
+                // var ok = ;
+                for (var i = 0; i < 10; i++) {
+                    if (result.items[i].id == null || result.items[i].id == undefined) {
+                        alert("Все плохо")
+                    }
+                }
+                done();
+            })
+        });*/
+
     });
 
-    describe('ID', function () {
-        
-        function getID() {
-
-            it('ID присутствует', function (done) {
-                $.when(YouTube.getVideoInfo()).then(function (result) {
-                    for (i = 0; i != id; i++){
-                        if (getid != null){
-                            getID();
-
-                        }
-
-                    }
-                    done();
-                });
-
-            });
-
-        }
-
-
-
-    })
 });

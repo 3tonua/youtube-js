@@ -38,6 +38,7 @@ $.when(YouTube.getLastVideos()).then(function (result) {
             $('.modal-prosm').html(count);
             console.log(index);
             console.log(videos);
+            console.log(video);
             // console.log(idprosm);
         });
 
