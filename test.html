@@ -4,28 +4,40 @@
     <meta charset="UTF-8">
     <title>YouTube Test</title>
 
+    <script src="https://cdn.rawgit.com/jquery/jquery/2.1.4/dist/jquery.min.js"></script>
+
+    <!-- стили Mocha для отображения результатов -->
     <link href="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.css" rel="stylesheet" />
 
-    <script src="https://cdn.rawgit.com/jquery/jquery/2.1.4/dist/jquery.min.js"></script>
+    <!-- подключаем библиотеку Mocha -->
     <script src="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js"></script>
+
+    <<!-- подключаем библиотеку Chai -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
 
+    <!-- настраиваем Mocha: предстоит BDD-тестирование -->
     <script>
         mocha.setup('bdd');
+        <!-- в chai есть много всего, выносим assert в глобальную область -->
         var assert = chai.assert;
     </script>
 </head>
 
 <body>
 
+<!-- в элементе с id="mocha" будут результаты тестов -->
 <div id="mocha"></div>
 
 <script src="api.js"></script>
 <script src="index.js"></script>
 <!--<script src="node_modules/moment/src/moment.js"></script>-->
+
+<!-- в этом скрипте находятся спеки -->
 <script src="test.js"></script>
+
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
+<!-- запуск тестов -->
 <script>
     mocha.run();
 </script>

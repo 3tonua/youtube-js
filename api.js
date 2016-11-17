@@ -32,7 +32,6 @@ var YouTube = {
                 // load.style.display = 'none';
             }
         });
-
         return dfd.promise();
     },
 

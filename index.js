@@ -37,6 +37,7 @@ $.when(YouTube.getLastVideos()).then(function (result) {
             $('.modal-date').html(date);
             $('.modal-prosm').html(count);
             console.log(index);
+            console.log(videos);
             // console.log(idprosm);
         });
 
@@ -49,8 +50,8 @@ $.when(YouTube.getLastVideos()).then(function (result) {
             var title = video.snippet.title;
             $('.modal-body').html(iframe);
             $('.modal-title').html(title);
-            console.log(index);
-            console.log(idprosm)
+            // console.log(index);
+            // console.log(idprosm)
         });
 
         $('#last').on('click', '.add-favorites', function () {
@@ -60,30 +61,32 @@ $.when(YouTube.getLastVideos()).then(function (result) {
             renderVideos(favorites, 'favorites');
             var favorites_string = JSON.stringify(favorites);
             localStorage.setItem('favorites', favorites_string);
-            console.log($(this))
+            // console.log($(this))
 
         })
 });
 
-var viewVideo=[];
+var videoInfo = [];
 
-console.log(viewVideo);
+// console.log(viewVideo);
 
 $.when(YouTube.getVideoInfo(id)).then(function (result) {
-    viewVideo = result.statistics;
-    console.log(viewVideo);
-        $('#last').on('click', '.watch', function () {
-            $('#watch-video').modal('show');
-            var index = $(this).parent().data('index');
-            var video = viewVideo[index];
-            var id = video.id;
-                // var iframe = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' +  id  + ' " frameborder="0" allowfullscreen></iframe>';
+    videoInfo = result.statistics;
 
-            var count = video.snippet.viewCount;
 
-            $('.modal-prosm').html(count);
-            console.log(index);
-        });
+        console.log(videoInfo);
+            $('#last').on('click', '.watch', function () {
+                $('#watch-video').modal('show');
+                var index = $(this).parent().data('index');
+                var video = videoInfo[index];
+                var id = video.id;
+                    // var iframe = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' +  id  + ' " frameborder="0" allowfullscreen></iframe>';
+
+                // var count = video.snippet.;
+
+                // $('.modal-prosm').html(count);
+                console.log(videoInfo);
+            });
 
 } );
 
