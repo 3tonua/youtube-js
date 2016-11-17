@@ -12,7 +12,7 @@ if (fav_localstorage) {
 } else {
     favorites = [];
 }
-console.log(fav_localstorage);
+// console.log(fav_localstorage);
 
 // var favorites1 = [fav_string];
 
@@ -30,14 +30,14 @@ $.when(YouTube.getLastVideos()).then(function (result) {
             var title = video.snippet.title;
             var channel = video.snippet.channelTitle;
             var date = video.snippet.publishedAt;
-            // var prosm = video.snippet.
+            var count = video.snippet.viewCount;
             $('.modal-body').html(iframe);
             $('.modal-title').html(title);
             $('.modal-channel').html(channel);
             $('.modal-date').html(date);
-            // $('.modal-prosm').html(prosm);
+            $('.modal-prosm').html(count);
             console.log(index);
-            console.log(idprosm);
+            // console.log(idprosm);
         });
 
         $('#favorites').on('click', '.watch', function () {
@@ -65,6 +65,27 @@ $.when(YouTube.getLastVideos()).then(function (result) {
         })
 });
 
+var viewVideo=[];
+
+console.log(viewVideo);
+
+$.when(YouTube.getVideoInfo(id)).then(function (result) {
+    viewVideo = result.statistics;
+    console.log(viewVideo);
+        $('#last').on('click', '.watch', function () {
+            $('#watch-video').modal('show');
+            var index = $(this).parent().data('index');
+            var video = viewVideo[index];
+            var id = video.id;
+                // var iframe = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' +  id  + ' " frameborder="0" allowfullscreen></iframe>';
+
+            var count = video.snippet.viewCount;
+
+            $('.modal-prosm').html(count);
+            console.log(index);
+        });
+
+} );
 
 function renderVideos(videos, id) {
     $('#' + id + ' .row').html(' ');

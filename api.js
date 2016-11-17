@@ -37,18 +37,19 @@ var YouTube = {
     },
 
     getVideoInfo: function (id) {
+        var dfd = jQuery.Deferred();
         $.ajax({
 
             url: "https://www.googleapis.com/youtube/v3/videos",
             data: {
-                part: "snippet",
+                part: "snippet,statistics",
+                key: key,
                 id: id
-
-
             },
             success: function( result ) {
                 dfd.resolve(result);
             }
         });
+        return dfd.promise();
     }
 };
